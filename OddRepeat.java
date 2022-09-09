@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class ReverseNumber {
+public class OddRepeat {
 	public static void main(String[] args) throws IOException{
 		try {
 			System.setIn(new FileInputStream("input.txt"));
@@ -11,17 +11,18 @@ public class ReverseNumber {
 		}
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int t = Integer.parseInt(br.readLine());
-
 		while(t-->0){
 			StringTokenizer st = new StringTokenizer(br.readLine());
-			int N = Integer.parseInt(st.nextToken());
-			int x=0;
-			while(N>0){
-				int digit = N%10;
-				x = x*10+digit;
-				N = N/10;
+			int n = Integer.parseInt(st.nextToken());
+			int k = Integer.parseInt(st.nextToken());
+			int s = Integer.parseInt(st.nextToken());
+			int total=0, i=1, count=0;
+			while(count<n){
+				total+=i;
+				i+=2;
+				count+=1;
 			}
-			System.out.println(x);
+			System.out.println((s-total)/(k-1));
 		}
 	}
 }

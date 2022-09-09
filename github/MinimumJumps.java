@@ -30,12 +30,11 @@ public class MinimumJumps {
         	sum+=arr[j];
         	j = sum;
         	count++;
-        	// System.out.println(count);
-        	if (sum>n) {
+             	if (sum>n) {
         		break;
         	}
         }
-        // System.out.println(count);
+      
        return count;
     }
 }
