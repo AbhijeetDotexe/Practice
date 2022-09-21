@@ -1,18 +1,1 @@
-Subarray with given sum is: 
-1 9 
-Sum before subtraction : 10
-Sum after subtraction : 9
-Sum before subtraction : 9
-Sum after subtraction : 0
-Sum before subtraction : 5
-Sum after subtraction : 0
-6 4 
-Sum before subtraction : 10
-Sum after subtraction : 4
-Sum before subtraction : 7
-Sum after subtraction : 3
-3 7 
-Sum before subtraction : 10
-Sum after subtraction : 7
-Sum before subtraction : 7
-Sum after subtraction : 0
+[[-1, -1, 2], [0, -1, 1]]
