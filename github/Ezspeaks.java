@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class AverageNumber {
+public class Ezspeaks {
 	public static void main(String[] args) throws IOException{
 		try {
 			System.setIn(new FileInputStream("input.txt"));
@@ -11,26 +11,24 @@ public class AverageNumber {
 		}
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int t = Integer.parseInt(br.readLine());
-
 		while(t-->0){
 			StringTokenizer st = new StringTokenizer(br.readLine());
 			int n = Integer.parseInt(st.nextToken());
-			int k = Integer.parseInt(st.nextToken());
-			int v = Integer.parseInt(st.nextToken());
-			int sum = 0;
-			int[] arr = new int[n];
-			String line = br.readLine();
-			String[] strs = line.trim().split("\\s+");
+			int count=0;
+			String s = br.readLine();
 			for (int i=0;i<n ;i++ ) {
-				arr[i] = Integer.parseInt(strs[i]);
-				sum+=arr[i];
+				if (s.charAt(i)=='a'||s.charAt(i)=='e'||s.charAt(i)=='i'||s.charAt(i)=='o'||s.charAt(i)=='u') {
+					count=0;
+				}else {
+					count++;
+					if (count>3) {
+						System.out.println("No");
+						break;
+					}
+				}
 			}
-			int total = n+k;
-			int ans = ((total*v)-sum)/k;
-			if (ans>0 && ((v*total)-sum)%k==0) {
-				System.out.println(ans);
-			}else {
-				System.out.println(-1);
+			if (count<4) {
+				System.out.println("Yes");
 			}
 		}
 	}

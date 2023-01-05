@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class AverageNumber {
+public class CardRemoval {
 	public static void main(String[] args) throws IOException{
 		try {
 			System.setIn(new FileInputStream("input.txt"));
@@ -11,27 +11,29 @@ public class AverageNumber {
 		}
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int t = Integer.parseInt(br.readLine());
-
 		while(t-->0){
 			StringTokenizer st = new StringTokenizer(br.readLine());
 			int n = Integer.parseInt(st.nextToken());
-			int k = Integer.parseInt(st.nextToken());
-			int v = Integer.parseInt(st.nextToken());
-			int sum = 0;
+			int max=Integer.MIN_VALUE;
 			int[] arr = new int[n];
 			String line = br.readLine();
 			String[] strs = line.trim().split("\\s+");
 			for (int i=0;i<n ;i++ ) {
 				arr[i] = Integer.parseInt(strs[i]);
-				sum+=arr[i];
 			}
-			int total = n+k;
-			int ans = ((total*v)-sum)/k;
-			if (ans>0 && ((v*total)-sum)%k==0) {
-				System.out.println(ans);
-			}else {
-				System.out.println(-1);
+			Arrays.sort(arr);
+			for (int j=0;j<n ;j++ ) {
+				int count=0;
+				for (int k=j;k<n ;k++ ) {
+					if (arr[j]==arr[k]) {
+						count++;
+					}
+				}
+				if (count>max) {
+					max=count;
+				}
 			}
+			System.out.println(n-max);
 		}
 	}
 }
