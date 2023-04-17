@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Tablet {
+public class RunningComparison {
 	public static void main(String[] args) throws IOException{
 		try {
 			System.setIn(new FileInputStream("input.txt"));
@@ -11,33 +11,30 @@ public class Tablet {
 		}
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int t = Integer.parseInt(br.readLine());
-
 		while(t-->0){
 			StringTokenizer st = new StringTokenizer(br.readLine());
 			int n = Integer.parseInt(st.nextToken());
-			int b = Integer.parseInt(st.nextToken());
+			int[] arr = new int[n];
+			int[] brr = new int[n];
+			int count=0;
 			String line = br.readLine();
-			int area = 0;
-			int Area = 0;
+			String[] ar = line.trim().split("\\s+");
 			for (int i=0;i<n ;i++ ) {
-				StringTokenizer s = new StringTokenizer(br.readLine());
-				int w = Integer.parseInt(s.nextToken());
-				int h = Integer.parseInt(s.nextToken());
-				int p = Integer.parseInt(s.nextToken());
+				arr[i] = Integer.parseInt(ar[i]);
+			}
 
-				if (b>=p) {
-					Area = w*h;
-					if (area<Area) {
-						area = Area;
-					}
+			String li = br.readLine();
+			String[] b = li.trim().split("\\s+");
+			for (int j=0;j<n ;j++ ) {
+				brr[j] = Integer.parseInt(b[j]);
+			}
+
+			for (int k=0;k<n ;k++ ) {
+				if(arr[k]>=brr[k]/2 && brr[k]>=arr[k]/2){
+					count++;
 				}
 			}
-
-			if (area == 0) {
-				System.out.println("no tablet");
-			}else {
-				System.out.println(area);
-			}
+			System.out.println(count);
 		}
 	}
 }

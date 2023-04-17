@@ -25,7 +25,7 @@ public class SelectionSort {
             int temp = arr[min_idx];
             arr[min_idx] = arr[i];
             arr[i] = temp;
-        }`
+        }
 	}
 }
 

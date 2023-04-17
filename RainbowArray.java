@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Tablet {
+public class RainbowArray {
 	public static void main(String[] args) throws IOException{
 		try {
 			System.setIn(new FileInputStream("input.txt"));
@@ -11,33 +11,34 @@ public class Tablet {
 		}
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int t = Integer.parseInt(br.readLine());
-
 		while(t-->0){
 			StringTokenizer st = new StringTokenizer(br.readLine());
 			int n = Integer.parseInt(st.nextToken());
-			int b = Integer.parseInt(st.nextToken());
+			int x=1;
+			int[] arr = new int[n];
 			String line = br.readLine();
-			int area = 0;
-			int Area = 0;
+			String[] str = line.trim().split("\\s+");
 			for (int i=0;i<n ;i++ ) {
-				StringTokenizer s = new StringTokenizer(br.readLine());
-				int w = Integer.parseInt(s.nextToken());
-				int h = Integer.parseInt(s.nextToken());
-				int p = Integer.parseInt(s.nextToken());
+				arr[i] = Integer.parseInt(str[i]);
+				
+			}
+			boolean flag=true;
+			int count = 0;
+			for (int j = 0; j < (arr.length+1)/2; j++) {
+				if (arr[j] != arr[arr.length - 1 - j] || arr[j]-count >1) {
+						flag=false;
+						break;
+				}else {
+					count=arr[j];
 
-				if (b>=p) {
-					Area = w*h;
-					if (area<Area) {
-						area = Area;
-					}
 				}
 			}
-
-			if (area == 0) {
-				System.out.println("no tablet");
-			}else {
-				System.out.println(area);
+			if(flag && count==7 ) {
+				System.out.print("yes" + "\n");
+			}else{
+				System.out.println("no"+"\n");
 			}
-		}
+			
+			}
 	}
 }

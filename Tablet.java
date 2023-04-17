@@ -16,9 +16,10 @@ public class Tablet {
 			StringTokenizer st = new StringTokenizer(br.readLine());
 			int n = Integer.parseInt(st.nextToken());
 			int b = Integer.parseInt(st.nextToken());
-			String line = br.readLine();
+			// String line = br.readLine();
 			int area = 0;
 			int Area = 0;
+			// br.readLine();
 			for (int i=0;i<n ;i++ ) {
 				StringTokenizer s = new StringTokenizer(br.readLine());
 				int w = Integer.parseInt(s.nextToken());

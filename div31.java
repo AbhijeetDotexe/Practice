@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Tablet {
+public class div31 {
 	public static void main(String[] args) throws IOException{
 		try {
 			System.setIn(new FileInputStream("input.txt"));
@@ -11,33 +11,28 @@ public class Tablet {
 		}
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int t = Integer.parseInt(br.readLine());
-
 		while(t-->0){
 			StringTokenizer st = new StringTokenizer(br.readLine());
 			int n = Integer.parseInt(st.nextToken());
+			int a = Integer.parseInt(st.nextToken());
 			int b = Integer.parseInt(st.nextToken());
-			String line = br.readLine();
-			int area = 0;
-			int Area = 0;
-			for (int i=0;i<n ;i++ ) {
-				StringTokenizer s = new StringTokenizer(br.readLine());
-				int w = Integer.parseInt(s.nextToken());
-				int h = Integer.parseInt(s.nextToken());
-				int p = Integer.parseInt(s.nextToken());
+			int sum=0;
+			if (n==1) {
+				System.out.println(b);
 
-				if (b>=p) {
-					Area = w*h;
-					if (area<Area) {
-						area = Area;
+			}else if(n!=1){
+				for (int i=1;i<=n ;i++ ) {
+					if (i%2!=0) {
+						sum+=b;
+					}else{
+						sum+=a;
 					}
 				}
-			}
-
-			if (area == 0) {
-				System.out.println("no tablet");
-			}else {
-				System.out.println(area);
-			}
+			
+			System.out.println(sum);
 		}
+	 }
 	}
+
+
 }

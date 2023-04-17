@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Tablet {
+public class PrimalityTest {
 	public static void main(String[] args) throws IOException{
 		try {
 			System.setIn(new FileInputStream("input.txt"));
@@ -11,33 +11,27 @@ public class Tablet {
 		}
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int t = Integer.parseInt(br.readLine());
-
 		while(t-->0){
 			StringTokenizer st = new StringTokenizer(br.readLine());
 			int n = Integer.parseInt(st.nextToken());
-			int b = Integer.parseInt(st.nextToken());
-			String line = br.readLine();
-			int area = 0;
-			int Area = 0;
-			for (int i=0;i<n ;i++ ) {
-				StringTokenizer s = new StringTokenizer(br.readLine());
-				int w = Integer.parseInt(s.nextToken());
-				int h = Integer.parseInt(s.nextToken());
-				int p = Integer.parseInt(s.nextToken());
-
-				if (b>=p) {
-					Area = w*h;
-					if (area<Area) {
-						area = Area;
-					}
-				}
-			}
-
-			if (area == 0) {
-				System.out.println("no tablet");
+			if (isPrime(n)) {
+				System.out.println("yes");
 			}else {
-				System.out.println(area);
+				System.out.println("no");
 			}
 		}
 	}
+
+ 	public static boolean isPrime(int n){
+			if(n==1){
+				return false;
+			}
+
+			for(int i=2;i*i<=n;i++){
+				if(n%i==0){
+					return false;
+				}
+			}
+			return true;
+		}
 }
